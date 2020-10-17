@@ -15,7 +15,6 @@ import { toHaveDisplayValue } from './toHaveDisplayValue';
 import { toBePartiallyChecked } from './toBePartiallyChecked';
 import { toBeInTheDocument } from './toBeInTheDocument';
 import { toBeVisible } from './toBeVisible';
-import { toHaveStyle } from './toHaveStyle';
 
 const JasmineDOM = {
 	toHaveAttribute,
@@ -37,7 +36,6 @@ const JasmineDOM = {
 	toBePartiallyChecked,
 	toBeInTheDocument,
 	toBeVisible,
-	toHaveStyle,
 };
 
 export default JasmineDOM;
