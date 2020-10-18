@@ -15,6 +15,53 @@
 </div>
 
 ---
+Re-build of **jasmine-dom** without reference to the `css` library - which gives an error on `fs` when used in the browser (as with Karma!).
+
+If, like me, you're in a Typescript project - add a file: `src/tests/Matchers.ts`:
+```
+export {};
+
+declare global {
+  namespace jasmine {
+    interface Matchers<T> {
+      toHaveAttribute(): void;
+      toHaveTextContent(): void;
+      toHaveClassName(): void;
+      toBeChecked(): void;
+      toBeEmptyDOMElement(): void;
+      toHaveFocus(): void;
+      toBeDisabled(): void;
+      toBeEnabled(): void;
+      toHaveDescription(): void;
+      toHaveValue(): void;
+      toHaveFormValues(): void;
+      toContainElement(): void;
+      toBeRequired(): void;
+      toBeInvalid(): void;
+      toBeValid(): void;
+      toHaveDisplayValue(): void;
+      toBePartiallyChecked(): void;
+      toBeInTheDocument(): void;
+      toBeVisible(): void;
+      // toHaveStyle(): void;
+    }
+  }
+}
+```
+
+And then, add to your test setup `test.ts` file:
+```
+import JasmineDOM from '@testing-library/jasmine-dom';
+import {} from 'src/tests/Matchers';
+
+beforeAll(() => {
+  jasmine.addMatchers(JasmineDOM);
+});
+
+```
+
+
+---
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
