@@ -51,7 +51,7 @@ declare global {
 
 And then, add to your test setup `test.ts` file:
 ```
-import JasmineDOM from '@testing-library/jasmine-dom';
+import JasmineDOM from '@iangrainger/jasmine-dom';
 import {} from 'src/tests/Matchers';
 
 beforeAll(() => {
